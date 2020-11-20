@@ -16,30 +16,37 @@ function render() {
     const deleteButton = document.createElement('button')
     div.append(deleteButton)
     deleteButton.append('삭제')
-    deleteButton.addEventListener('click',deleteThis)
+    deleteButton.addEventListener('click',function(){
+        deleteThis(div)
+    })
 
     const p = document.createElement('p')
     div.append(p)
     p.append('Lorem, ipsum dolor sit amet consectetur adipisicing elit. Assumenda eaque fugit laborum odio corrupti accusamus totam ipsa numquam, vitae ipsam sed repellat quia provident dignissimos vero quam quisquam debitis aliquid.')
 
-    const likeButton = document.createElement('button')
+    const likeButton = document.createElement('i')
+    //likeButton.className="far fa-heart"
+    likeButton.classList.add("far", "fa-heart")
+    //<i class="far fa-heart"></i>
     div.append(likeButton)
-    likeButton.append('좋아요')
 
-    likeButton.addEventListener('click',likeButtonAlert)
-    
-    function deleteThis(){
-        let removeThis = confirm('삭제하시겠습니까?')
-        if(removeThis == true){
-            div.remove()
-        }
-    }
+    likeButton.addEventListener('click',function(){
+        likeButtonClick(likeButton)
+    })
 }
 render()
 render()
 render()
 
-function likeButtonAlert(){
-    alert("좋아요.")
+function deleteThis(div){
+    let removeThis = confirm('삭제하시겠습니까?')
+    if(removeThis == true){
+        div.remove()
+    }
+}
+
+function likeButtonClick(likeButton){
+    //alert("좋아요.")
+    likeButton.classList.add("red")
 }
 
