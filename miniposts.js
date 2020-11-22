@@ -1,12 +1,14 @@
 function render() {
     const list = document.querySelector('#list')
-    list.innerHTML += '<div><h2>안녕하세요</h2><a href="./update.html">수정</a><button id="deleteButton">삭제</button><p>내용을 입력부분</p><i class="far fa-heart"></i></div>';
+    const div = document.createElement('div')
 
-    const deleteButton = document.querySelectorAll('button')
+    list.append(div)
+    div.innerHTML += '<h2>안녕하세요</h2><a href="./update.html">수정</a><button id="deleteButton">삭제</button><p>내용을 입력부분</p><i class="far fa-heart"></i>';
 
-    for(let i = 0 ; i < deleteButton.length; i++){
-        deleteButton[i].addEventListener('click', function(){
-            deleteThis(deleteButton[i].parentNode)
+    const deleteButton = div.querySelector('button')
+
+        deleteButton.addEventListener('click', function(){
+            deleteThis(div)
         })
 
     const likeButton = document.querySelectorAll('i')
@@ -17,7 +19,7 @@ function render() {
         })
         }
     }
-}
+
 render()
 render()
 render()
