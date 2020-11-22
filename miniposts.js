@@ -7,16 +7,16 @@ function render() {
 
     const deleteButton = div.querySelector('button')
 
-        deleteButton.addEventListener('click', function(){
-            deleteThis(div)
-        })
+    deleteButton.addEventListener('click', function(){
+        deleteThis(div)
+    })
 
     const likeButton = document.querySelectorAll('i')
 
     for(let i = 0 ; i < likeButton.length; i++ ){
-        likeButton[i].addEventListener('click', function(){
-            likeButtonClick(div[i])
-        })
+            likeButton[i].addEventListener('click', function(){
+                likeButtonClick(div[i])
+            })
         }
     }
 
