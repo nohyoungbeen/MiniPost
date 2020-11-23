@@ -11,14 +11,13 @@ function render() {
         deleteThis(div)
     })
 
-    const likeButton = document.querySelectorAll('i')
+    const likeButton = div.querySelector('i')
 
-    for(let i = 0 ; i < likeButton.length; i++ ){
-            likeButton[i].addEventListener('click', function(){
-                likeButtonClick(div[i])
-            })
-        }
-    }
+    likeButton.addEventListener('click', function(){
+        likeButtonClick(likeButton)
+    })
+        
+}
 
 render()
 render()
