@@ -1,20 +1,36 @@
+const data = [
+    {
+        title: '안녕하세요',
+        content: '내용',
+        like: 0, // 0: 검은색, 1: 빨간색
+    }, {
+        title: '안녕하세요2',
+        content: '내용2',
+        like: 1, // 0: 검은색, 1: 빨간색
+    }
+]
+
 function render() {
     const list = document.querySelector('#list')
-    const div = document.createElement('div')
+    
+    for(let i = 0; i < data.length; i++){
+        const div = document.createElement('div')
+        list.append(div)
+        div.innerHTML += `<h2>${title}</h2><a href="./update.html">수정</a><button id="deleteButton">삭제</button><p>${content}</p></p><i class="far fa-heart"></i>`;
+        const deleteButton = div.querySelector('button')
+        deleteButton.addEventListener('click', function(e){
+            deleteDiv(e.target.parentNode)
+        })
+        const likeButton = div.querySelector('i')
+        likeButton.addEventListener('click', function(e){
+            likeButtonClick(e.target)
+        })
+    }
+    
 
-    list.append(div)
-    div.innerHTML += '<h2>안녕하세요</h2><a href="./update.html">수정</a><button id="deleteButton">삭제</button><p>내용을 입력부분</p><i class="far fa-heart"></i>';
+    
 
-    const deleteButton = div.querySelector('button')
-    deleteButton.addEventListener('click', function(e){
-        deleteDiv(e.target.parentNode)
-    })
-
-    const likeButton = div.querySelector('i')
-
-    likeButton.addEventListener('click', function(e){
-        likeButtonClick(e.target)
-    })
+    
         
 }
 
