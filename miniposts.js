@@ -1,21 +1,12 @@
-const data = [
-    {title : '안녕하세요' ,
-    content : '내용'    
-    },
-    {title : '안녕하세요2 ',
-    content : '내용2'
-    },
-    {title : '안녕하세요3',
-    content : '내용3'
-    }
-]
 
-function render(data) {
+// delete from minipost where title = '안녕하세요'
+function render(minipost) { // o
     const list = document.querySelector('#list')
     const div = document.createElement('div')
 
     list.append(div)
-    div.innerHTML += `<h2>${data.title}</h2><a href="./update.html">수정</a><button id="deleteButton">삭제</button><p>${data.content}</p><i class="far fa-heart"></i>`;
+    div.innerHTML += `<h2>${minipost.title}</h2><a href="./update.html">수정</a><button id="deleteButton">삭제</button><p>
+    ${minipost.content}</p><i class="far fa-heart"></i>`;
 
     const deleteButton = div.querySelector('button')
     deleteButton.addEventListener('click', function(e){
@@ -29,10 +20,6 @@ function render(data) {
     })
 }
 
-for(let i = 0; i < data.length; i++){
-    render(data[i])
-}
-
 
 
 function deleteDiv(div){
@@ -42,10 +29,8 @@ function deleteDiv(div){
     }
 }
 
-function likeButtonRed(likeButton){
-    likeButton.classList.add("red")
+function likeButtonClick(likeButton){
+    likeButton.classList.toggle("red")
 }
 
-function likeButtonBlack(likeButton){
-    likeButton.classList.add("black")
-}
+selectAjax()

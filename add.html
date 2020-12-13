@@ -11,15 +11,33 @@
         <a href="./index.html">뒤로가기</a>
         <h1>Add Post</h1>
         <div class="mainbox">
-            <button>Share</button>
-            <div>
-                <input type="text" placeholder="text">
-            </div>
-            <div>
-                <textarea name="" id="" cols="30" rows="10" placeholder="내용"></textarea>
-            </div>
+            <form action="php/create.php" method="GET">
+                <button type="submit" id="addButton">추가</button>
+                <div>
+                    <input type="text" name="title" id="title" placeholder="text">
+                </div>
+                <div>
+                    <textarea name="content" id="content" cols="30" rows="10" placeholder="내용"></textarea>
+                </div>
+            </form>
         </div>
-    </div>    
-    <script src="./index.js"></script>
+    </div>
+    <script>
+        const form = document.querySelector('form')
+        const addButton = document.querySelector('#addButton')
+
+        form.addEventListener('submit',function(e){ // submit 
+        const title = document.querySelector('#title')
+        const content = document.querySelector('#content')
+            if(title.value === ''){
+                e.preventDefault()
+                alert('제목을 입력하세요')
+            }else if(content.value === ''){
+                e.preventDefault()
+                alert('내용을 입력하세요')
+            }
+        });
+
+    </script>
 </body>
 </html>
