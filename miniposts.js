@@ -16,11 +16,15 @@ function render(minipost) { //
             removeAjax(e, id)
         }
     })
-
+    
     const likeButton = div.querySelector('i')
 
-    likeButton.addEventListener('click', function(e){
-        likeButtonClick(e.target)
+    if(minipost.like == 1){ // mysql상 like가 1 이 되었을때 밑에 명령문이 실행되면서 하트의 색이 빨간색으로 변한다.
+        likeButton.classList.toggle("red") //
+    }
+
+    likeButton.addEventListener('click', function(){
+        likeAjax(minipost.id, minipost.like, likeButton) // 16, 0 
     })
 }
 
@@ -28,11 +32,6 @@ function render(minipost) { //
 function deleteDiv(div){
         div.remove()
 }
-
-function likeButtonClick(likeButton){
-    likeButton.classList.toggle("red")
-}
-
 
 selectAjax()
 
