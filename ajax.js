@@ -48,6 +48,26 @@ function removeAjax(e, id){
     })
 }
 
+function likeAjax(id, like, likeButton){
+    if(like == 1){
+        like = 0;
+    }else{
+        like = 1;
+    }
+
+    $.ajax({
+        type:'GET',
+        url : `http://127.0.0.1/MINI-POSTS/php/like.php?id=${id}&like=${like}`,
+        dataType : 'text',
+        success: function(){
+                likeButton.classList.toggle("red")            
+        }
+    })
+}
+
+
+
+
 
 // function updateAjax(e, id, completed){
 //     if(completed == 0){
