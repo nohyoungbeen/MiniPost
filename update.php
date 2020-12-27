@@ -12,11 +12,6 @@ $result = mysqli_query($conn, $sql);
 // echo $result;
 $row = mysqli_fetch_array($result);
 
-
-//echo json_encode($returnData);//row를 가지고 []로 출력?
-                            //json_encode json형식으로 타입배열을 문자로 만들어주는 함수
-//print_r($returnData);
-
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -42,7 +37,14 @@ $row = mysqli_fetch_array($result);
                 </div>
             </div>
         </form>
-    </div>    
-    <script src="./index.js"></script>
+    </div>
+    <script src="./validation.js"></script> 
+    <script>
+        const form = document.querySelector('form')
+
+        form.addEventListener('submit', function(e){
+            nullCheck(e, form.title.value, form.content.value)
+        })
+    </script>
 </body>
 </html>

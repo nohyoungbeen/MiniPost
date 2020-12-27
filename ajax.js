@@ -5,9 +5,7 @@ function selectAjax(){
         dataType : "json",
         success : function(minipost){
             for(let i = 0; i < minipost.length; i ++){
-                //minipost[i].like = 1 // like 1: red 0 : black
                 render(minipost[i])
-                console.log(minipost);
             }
         },
         fail : function(error){
@@ -15,9 +13,6 @@ function selectAjax(){
         }
     })
 }
-
-
-//http://127.0.0.1/MINI-POSTS/php/create.php?title=?&content=?
 
 function addAjax(){
     $.ajax({
@@ -27,7 +22,6 @@ function addAjax(){
         success : function(minipost){
             for(let i = 0; i < minipost.length; i ++){
                 render(minipost[i])
-                console.log(minipost);
             }
         },
         fail : function(error){
@@ -35,8 +29,6 @@ function addAjax(){
         }
     })
 }
-
-
 
 function removeAjax(e, id){
     $.ajax({
@@ -50,21 +42,7 @@ function removeAjax(e, id){
 }
 
 
-// function updateAjax(e, id, completed){
-//     if(completed == 0){
-//         completed = 1
-//     }else if(completed == 1){
-//         completed = 0
-//     }
-//     $.ajax({
-//         type:'GET',
-//         url : `http://127.0.0.1/TMINI-POSTS/php/update.php?id=${id}&content=${content}`,
-//         dataType : 'json',
-//         success: listColor(e)
-//     })
-// }
-
-function likeAjax(id, like, likeButton){ // 16, 0
+function likeAjax(id, like, likeButton){
     if(like == 0){
         like = 1;
     }else{

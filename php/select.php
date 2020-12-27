@@ -6,7 +6,7 @@ $conn = mysqli_connect(
     'study'
 );
 
-$sql = "SELECT * FROM minipost";
+$sql = "SELECT * FROM minipost ORDER BY ID DESC";
 $result = mysqli_query($conn, $sql);
 // echo $result;
 $returnData = [];

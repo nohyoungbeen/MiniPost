@@ -21,23 +21,14 @@
                 </div>
             </form>
         </div>
-    </div>
+    </div>    
+    <script src="./validation.js"></script>
     <script>
-        const form = document.querySelector('form')
-        const addButton = document.querySelector('#addButton')
+        const form = document.querySelector('form')      
 
-        form.addEventListener('submit',function(e){ // submit 
-        const title = document.querySelector('#title')
-        const content = document.querySelector('#content')
-            if(title.value === ''){
-                e.preventDefault()
-                alert('제목을 입력하세요')
-            }else if(content.value === ''){
-                e.preventDefault()
-                alert('내용을 입력하세요')
-            }
-        });
-
+        form.addEventListener('submit',function(e){ 
+            nullCheck(e, form.title.value, form.content.value)
+    })
     </script>
 </body>
 </html>
